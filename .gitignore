@@ -1,0 +1,6 @@
+api.txt
+api_tg.txt
+__pycache__/
+.DS_Store
+bot.log
+test.ipynb
