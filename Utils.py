@@ -1,6 +1,10 @@
 import requests as rq
 from datetime import datetime
 import matplotlib.pyplot as plt
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_real_temp(CITY, API_KEY):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
@@ -34,7 +38,7 @@ def get_food_info(product_name):
     return None
 
 def count_water(weight, active_time, city):
-    api = get_API_key()
+    api = os.getenv("WEATHER_API_KEY")
     temperature = get_real_temp(city, api)
     return weight * 30 + 500 * (active_time / 30) + 500 * (20 / temperature)
 
