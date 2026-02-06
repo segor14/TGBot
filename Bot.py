@@ -10,10 +10,12 @@ from aiogram.types import FSInputFile
 import os
 import logging
 from datetime import datetime
+from dotenv import load_dotenv
 
 from Utils import get_API_key, get_today_date, count_water, count_calorie, get_food_info, plot_stat
 
-TOKEN = get_API_key("api_tg.txt")
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
